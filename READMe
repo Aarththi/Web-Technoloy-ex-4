@@ -1,0 +1,15 @@
+# Online Toy Store Using Advanced CSS3
+
+The **Online Toy Store** is a web development project created using **HTML5 and Advanced CSS3**. The main aim of this project is to design an attractive, colourful, and user-friendly website where customers can explore different types of toys, view product details, check prices, and place orders through an online form. The webpage includes a header, navigation menu, welcome section, special offers, toy product cards, an order form, a price list, and a footer.
+
+This project demonstrates seven important Advanced CSS3 features. **Rounded corners** are created using the `border-radius` property to give smooth edges to different sections. **Border images** are implemented using the `border-image` property to create decorative borders. **Multiple backgrounds** are used to display more than one background image in a section. The `background-size` property is used to adjust the background image according to the section size. **Pseudo-classes** such as `:hover`, `:focus`, `:required`, `:valid`, and `:invalid` are used to provide interactive effects and form validation styles. The **adjacent sibling selector (`+`)** is used to change the toy image appearance when the mouse pointer is placed over its name. The **`:nth-child()` selector** is used to apply different background colours to odd and even rows in the toy price table.
+
+The webpage is designed with a simple and colourful layout to provide a pleasant shopping experience. CSS properties such as margins, padding, borders, colours, shadows, flexbox, and transitions are used to improve the overall appearance and arrangement of the elements. The project also helps demonstrate how CSS3 selectors and styling properties can make a basic HTML webpage more attractive and interactive.
+
+**Technologies Used:**
+- HTML5 – To create the structure and content of the webpage.
+- CSS3 – To design and style the webpage using advanced properties and selectors.
+- Visual Studio Code – To write and edit the HTML and CSS code.
+- Web Browser – To run and view the completed webpage.
+
+**Conclusion:** This project successfully demonstrates the use of advanced CSS3 properties and selectors in designing an Online Toy Store webpage. It provides practical knowledge of webpage styling, background effects, interactive elements, form styling, and table formatting. It also improves understanding of how HTML and CSS work together to create an attractive and user-friendly website.
