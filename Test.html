@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Toy Store</title>
+
+    <style>
+
+        /* ------------------------------
+           BASIC PAGE DESIGN
+        ------------------------------ */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff7e6;
+        }
+
+        header {
+            background: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav {
+            background: #333;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+
+        /* ------------------------------
+           1. ROUNDED CORNERS
+           border-radius
+        ------------------------------ */
+
+        .welcome {
+            width: 80%;
+            margin: 25px auto;
+            padding: 25px;
+            background-color: #ffd166;
+            border: 3px solid #ff9f1c;
+
+            /* Rounded corners */
+            border-radius: 25px;
+            
+            text-align: center;
+        }
+
+
+        /* ------------------------------
+           2. BORDER IMAGE
+           border-image
+        ------------------------------ */
+
+        .special {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+
+            border: 15px solid transparent;
+
+            /*
+              If border.png exists, it will be used.
+              Otherwise the normal border is still visible.
+            */
+            border-image: url("border.png") 30 round;
+
+            background-color: white;
+            text-align: center;
+        }
+
+
+        /* ------------------------------
+           3. MULTIPLE BACKGROUNDS
+           background-image
+        ------------------------------ */
+
+        .toy-banner {
+            width: 80%;
+            height: 180px;
+            margin: 25px auto;
+
+            background-image:
+                url("img_flwr.gif"),
+                url("paper.gif");
+
+            background-position:
+                right bottom,
+                left top;
+
+            background-repeat:
+                no-repeat,
+                repeat;
+
+            padding: 20px;
+            box-sizing: border-box;
+
+            text-align: center;
+        }
+
+        .toy-banner h2 {
+            font-size: 30px;
+            margin-top: 50px;
+        }
+
+
+        /* ------------------------------
+           4. BACKGROUND SIZE
+           cover / contain
+        ------------------------------ */
+
+        .sale-banner {
+            width: 80%;
+            height: 200px;
+            margin: 25px auto;
+
+            background-image: url("img_flower.jpg");
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            border-radius: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sale-banner h2 {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            opacity: 0.9;
+        }
+
+
+        /* ------------------------------
+           TOY PRODUCTS
+        ------------------------------ */
+
+        .products {
+            width: 90%;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .toy {
+            width: 220px;
+            padding: 20px;
+
+            background-color: white;
+
+            border: 2px solid #ddd;
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 10px #ccc;
+        }
+
+        .toy img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+
+            border-radius: 15px;
+        }
+
+        .toy h3 {
+            color: #ff6b6b;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+
+        button {
+            background-color: #ff6b6b;
+            color: white;
+
+            border: none;
+            padding: 10px 20px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e63946;
+        }
+
+
+        /* ------------------------------
+           5. PSEUDO-CLASSES
+           :focus
+           :required
+           :valid
+           :invalid
+        ------------------------------ */
+
+        .order {
+            width: 80%;
+            margin: 40px auto;
+            padding: 25px;
+
+            background-color: white;
+
+            border-radius: 20px;
+
+            text-align: center;
+        }
+
+        input {
+            padding: 12px;
+            margin: 10px;
+
+            border: 2px solid #aaa;
+            border-radius: 8px;
+        }
+
+        /* :focus */
+
+        input:focus {
+            border: 3px solid blue;
+            background-color: #e9ffe9;
+        }
+
+        /* :required */
+
+        input:required {
+            background-color: #fffde7;
+        }
+
+        /* :valid */
+
+        input[type="email"]:valid {
+            border: 3px solid green;
+        }
+
+        /* :invalid */
+
+        input[type="email"]:invalid {
+            border: 3px solid red;
+        }
+
+
+        /* ------------------------------
+           6. ADJACENT SIBLING SELECTOR
+           A + B
+        ------------------------------ */
+
+        .toy-name {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .toy-image {
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        /*
+          When toy-name is hovered,
+          the immediately following
+          toy-image becomes visible.
+        */
+
+        .toy-name:hover + .toy-image {
+            opacity: 1;
+        }
+
+
+        /* ------------------------------
+           7. NTH-CHILD()
+        ------------------------------ */
+
+        .price-table {
+            width: 80%;
+            margin: 30px auto;
+
+            border-collapse: collapse;
+
+            background-color: white;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 15px;
+            border: 1px solid #999;
+            text-align: center;
+        }
+
+        /* Odd rows */
+
+        .price-table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        /* Even rows */
+
+        .price-table tr:nth-child(even) {
+            background-color: #dbeeff;
+        }
+
+        /* Hover row */
+
+        .price-table tr:hover {
+            background-color: #ffd966;
+        }
+
+
+        /* ------------------------------
+           FOOTER
+        ------------------------------ */
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+
+            background-color: #333;
+            color: white;
+
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>🧸 Happy Kids Online Toy Store 🧸</h1>
+        <p>Fun Toys • Happy Kids • Best Prices</p>
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Toys</a>
+        <a href="#">Offers</a>
+        <a href="#">Contact</a>
+    </nav>
+
+
+    <!-- 1. ROUNDED CORNERS -->
+
+    <section class="welcome">
+
+        <h2>Welcome to Our Toy Store! 🎁</h2>
+
+        <p>
+            Discover amazing toys for kids of all ages.
+            Shop your favourite toys online!
+        </p>
+
+    </section>
+
+
+    <!-- 2. BORDER IMAGE -->
+
+    <section class="special">
+
+        <h2>⭐ Special Offer ⭐</h2>
+
+        <p>
+            Get exciting toys at amazing prices!
+        </p>
+
+    </section>
+
+
+    <!-- 3. MULTIPLE BACKGROUNDS -->
+
+    <section class="toy-banner">
+
+        <h2>🌸 Fun Toys for Everyone! 🌸</h2>
+
+        <p>
+            Explore our colourful collection of toys.
+        </p>
+
+    </section>
+
+
+    <!-- 4. BACKGROUND SIZE -->
+
+    <section class="sale-banner">
+
+        <h2>🎉 BIG TOY SALE - UP TO 50% OFF 🎉</h2>
+
+    </section>
+
+
+    <!-- TOY PRODUCTS -->
+
+    <h2 style="text-align:center;">
+        🧸 Our Popular Toys 🧸
+    </h2>
+
+
+    <section class="products">
+
+        <!-- Toy 1 -->
+
+        <div class="toy">
+
+            <p class="toy-name">Teddy Bear</p>
+
+            <div class="toy-image">
+                <img src="item1.jpg" alt="Teddy Bear">
+            </div>
+
+            <h3>Teddy Bear</h3>
+
+            <p class="price">₹499</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+
+        <!-- Toy 2 -->
+
+        <div class="toy">
+
+            <p class="toy-name">Toy Car</p>
+
+            <div class="toy-image">
+                <img src="item1.jpg" alt="Toy Car">
+            </div>
+
+            <h3>Racing Car</h3>
+
+            <p class="price">₹299</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+
+        <!-- Toy 3 -->
+
+        <div class="toy">
+
+            <p class="toy-name">Building Blocks</p>
+
+            <div class="toy-image">
+                <img src="item1.jpg" alt="Building Blocks">
+            </div>
+
+            <h3>Building Blocks</h3>
+
+            <p class="price">₹599</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+
+        <!-- Toy 4 -->
+
+        <div class="toy">
+
+            <p class="toy-name">Doll</p>
+
+            <div class="toy-image">
+                <img src="item1.jpg" alt="Doll">
+            </div>
+
+            <h3>Beautiful Doll</h3>
+
+            <p class="price">₹399</p>
+
+            <button>Buy Now</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- 5. PSEUDO-CLASS FORM -->
+
+    <section class="order">
+
+        <h2>🛒 Place Your Order</h2>
+
+        <form>
+
+            <input
+                type="text"
+                placeholder="Enter your name"
+                required
+            >
+
+            <br>
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <br>
+
+            <input
+                type="text"
+                placeholder="Enter your favourite toy"
+                required
+            >
+
+            <br>
+
+            <button type="submit">
+                Submit Order
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- 7. NTH-CHILD -->
+
+    <h2 style="text-align:center;">
+        🏷️ Toy Price List
+    </h2>
+
+
+    <table class="price-table">
+
+        <tr>
+            <th>Toy</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+
+        <tr>
+            <td>Teddy Bear</td>
+            <td>Soft Toy</td>
+            <td>₹499</td>
+        </tr>
+
+        <tr>
+            <td>Racing Car</td>
+            <td>Vehicle</td>
+            <td>₹299</td>
+        </tr>
+
+        <tr>
+            <td>Building Blocks</td>
+            <td>Educational</td>
+            <td>₹599</td>
+        </tr>
+
+        <tr>
+            <td>Beautiful Doll</td>
+            <td>Doll</td>
+            <td>₹399</td>
+        </tr>
+
+        <tr>
+            <td>Remote Car</td>
+            <td>Electronic</td>
+            <td>₹899</td>
+        </tr>
+
+    </table>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Happy Kids Online Toy Store
+        </p>
+
+        <p>
+            Made with HTML & Advanced CSS3 ❤️
+        </p>
+
+    </footer>
+
+</body>
+</html>
